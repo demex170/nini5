@@ -1,0 +1,1912 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090507">
+<title>შენთვის, განსაკუთრებულო ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --bg: #090507;
+  --bg2: #13070c;
+  --red: #a50e35;
+  --red2: #e43d60;
+  --rose: #ff9aaa;
+  --white: #fff3f4;
+  --muted: #bba5ab;
+  --line: rgba(255, 111, 141, .18);
+  --serif: "Noto Serif Georgian", serif;
+  --display: "Playfair Display", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--serif);
+  overflow-x: hidden;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 5px;
+}
+
+::selection {
+  background: #a50e35;
+  color: white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 10% 15%, rgba(116, 7, 38, .19), transparent 38%),
+    radial-gradient(ellipse at 90% 70%, rgba(115, 13, 42, .15), transparent 38%),
+    #090507;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  z-index: 200;
+  background: linear-gradient(90deg, #8e092c, #ff91a8);
+  box-shadow: 0 0 14px #ff436f;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: .11;
+  background: #d3194b;
+  animation: drift 15s ease-in-out infinite alternate;
+}
+
+.orb.one {
+  top: 10%;
+  left: -180px;
+}
+
+.orb.two {
+  right: -180px;
+  top: 60%;
+  animation-delay: -7s;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(.8); }
+  to { transform: translate(80px, -70px) scale(1.25); }
+}
+
+/* შესვლის ეკრანი */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, rgba(102, 5, 35, .32), transparent 55%),
+    #080407;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+#intro.exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-inner {
+  width: min(600px, 100%);
+  animation: introRise 1.4s both;
+}
+
+.intro-kicker {
+  color: var(--rose);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.intro-heart {
+  color: #e53b60;
+  font-size: 48px;
+  display: inline-block;
+  margin-bottom: 25px;
+  animation: heartbeat 1.8s infinite;
+  filter: drop-shadow(0 0 24px rgba(255, 45, 93, .5));
+}
+
+.intro-title {
+  font-family: var(--display), var(--serif);
+  font-weight: 400;
+  font-size: clamp(35px, 7vw, 67px);
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.intro-title em {
+  color: var(--rose);
+  font-weight: 400;
+}
+
+.intro-sub {
+  max-width: 430px;
+  margin: 0 auto 35px;
+  font-size: 13px;
+  line-height: 2.2;
+  color: var(--muted);
+}
+
+@keyframes introRise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.18); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 25px;
+  border: 1px solid rgba(255, 128, 156, .45);
+  border-radius: 2px;
+  background: linear-gradient(135deg, #8c0c30, #4e071e);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 40px rgba(117, 6, 37, .2);
+  transition: transform .3s, box-shadow .3s, background .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 42px rgba(192, 21, 68, .3);
+  background: linear-gradient(135deg, #b91442, #690b29);
+}
+
+.btn.secondary {
+  background: rgba(255, 255, 255, .025);
+  box-shadow: none;
+}
+
+/* მენიუ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(18px, 6vw, 85px);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(9, 5, 7, .78);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  color: var(--rose);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 23px;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 23px;
+  align-items: center;
+}
+
+.nav a {
+  color: #c7b0b6;
+  text-decoration: none;
+  font-size: 11px;
+  transition: color .3s;
+}
+
+.nav a:hover {
+  color: var(--rose);
+}
+
+.music-btn {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--rose);
+  background: #18080e;
+  cursor: pointer;
+}
+
+.music-btn.playing {
+  animation: heartbeat 2s infinite;
+}
+
+/* სექციები */
+
+section {
+  position: relative;
+  padding: 110px clamp(20px, 8vw, 125px);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 60px;
+}
+
+.eyebrow {
+  color: var(--rose);
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--display), var(--serif);
+  font-weight: 400;
+  font-size: clamp(31px, 5vw, 53px);
+  line-height: 1.4;
+  margin-bottom: 17px;
+}
+
+.section-title em {
+  color: var(--rose);
+  font-weight: 400;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2.2;
+}
+
+.divider {
+  width: 65px;
+  height: 1px;
+  margin: 25px auto 0;
+  background: linear-gradient(90deg, transparent, #f16b8a, transparent);
+}
+
+/* მთავარი ეკრანი — ფოტო ამოღებულია */
+
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 110px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(9,5,7,.06), rgba(9,5,7,.65) 75%, #090507),
+    radial-gradient(ellipse at center, rgba(111, 8, 38, .16), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(800px, 100%);
+}
+
+.hero-label {
+  color: var(--rose);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-family: var(--display), var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 8.4vw, 91px);
+  line-height: 1.25;
+  margin-bottom: 23px;
+}
+
+.hero h1 span {
+  color: var(--rose);
+  display: block;
+  font-style: italic;
+}
+
+.hero p {
+  color: #d1bdc2;
+  font-size: 13px;
+  line-height: 2.4;
+  max-width: 480px;
+  margin: 0 auto 35px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 27px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #8c737b;
+  font-size: 9px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.scroll-hint span {
+  display: block;
+  font-size: 20px;
+  margin-top: 10px;
+  animation: bob 1.5s infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* დროის მრიცხველი */
+
+.counter-section {
+  padding-top: 40px;
+  padding-bottom: 105px;
+}
+
+.counter-panel {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 45px 25px;
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(92, 8, 31, .2), rgba(255,255,255,.012));
+  text-align: center;
+  position: relative;
+}
+
+.counter-panel::before,
+.counter-panel::after {
+  content: "✦";
+  position: absolute;
+  color: #e95778;
+  font-size: 15px;
+}
+
+.counter-panel::before {
+  top: 17px;
+  left: 20px;
+}
+
+.counter-panel::after {
+  bottom: 17px;
+  right: 20px;
+}
+
+.counter-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 30px;
+  line-height: 2;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 650px;
+  margin: auto;
+}
+
+.counter-item {
+  padding: 10px;
+  border-right: 1px solid var(--line);
+}
+
+.counter-item:last-child {
+  border: none;
+}
+
+.counter-number {
+  display: block;
+  color: var(--rose);
+  font-family: var(--display);
+  font-size: clamp(28px, 5vw, 48px);
+  font-variant-numeric: tabular-nums;
+}
+
+.counter-name {
+  display: block;
+  color: #a78f97;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+/* ფოტოები — სრულად ჩანს, აღარ იჭრება */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 38px 28px;
+  max-width: 1050px;
+  margin: auto;
+}
+
+.photo-card {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.photo-card:nth-child(even) {
+  margin-top: 60px;
+}
+
+.photo-frame {
+  height: clamp(260px, 42vw, 440px);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, .1);
+  background: #10070c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12,4,8,.2), transparent 35%);
+  pointer-events: none;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .7s;
+}
+
+.photo-card:hover .photo-frame img {
+  transform: scale(1.025);
+  filter: brightness(1.08);
+}
+
+.photo-number {
+  position: absolute;
+  bottom: 19px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+  font-family: var(--display);
+  font-size: 24px;
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  pointer-events: none;
+}
+
+.photo-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  font-size: 12px;
+  color: #e6cbd2;
+}
+
+.photo-caption span:last-child {
+  color: #956a79;
+}
+
+/* Timeline */
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 15px;
+  bottom: 15px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #9e2247, #532034, transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 35px 65px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #a91c42;
+  border: 4px solid #2c101a;
+  box-shadow: 0 0 0 1px rgba(255, 124, 153, .3);
+  z-index: 1;
+}
+
+.timeline-trigger {
+  width: 100%;
+  padding: 24px;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, .018);
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  transition: border .3s, background .3s, transform .3s;
+}
+
+.timeline-trigger:hover,
+.timeline-item.open .timeline-trigger {
+  border-color: rgba(255, 114, 147, .48);
+  background: rgba(117, 8, 38, .13);
+  transform: translateX(4px);
+}
+
+.timeline-date {
+  display: block;
+  color: var(--rose);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.timeline-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--display), var(--serif);
+  font-size: 20px;
+}
+
+.timeline-plus {
+  color: var(--rose);
+  font-size: 22px;
+  font-weight: 400;
+  transition: transform .3s;
+}
+
+.timeline-item.open .timeline-plus {
+  transform: rotate(45deg);
+}
+
+.timeline-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .45s ease;
+}
+
+.timeline-detail-inner {
+  overflow: hidden;
+}
+
+.timeline-detail p {
+  padding: 0 24px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2.2;
+  border: 1px solid transparent;
+  border-top: 0;
+}
+
+.timeline-item.open .timeline-detail {
+  grid-template-rows: 1fr;
+}
+
+.timeline-item.open .timeline-detail p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-color: var(--line);
+  background: rgba(255,255,255,.01);
+}
+
+/* მთავარი წერილი */
+
+.letter-section {
+  text-align: center;
+  background: radial-gradient(ellipse at center, rgba(113, 9, 39, .12), transparent 70%);
+}
+
+.envelope-visual {
+  width: 170px;
+  height: 115px;
+  margin: 0 auto 30px;
+  position: relative;
+  cursor: pointer;
+  transition: transform .4s;
+}
+
+.envelope-visual:hover {
+  transform: translateY(-8px) rotate(-2deg);
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 12px 0 0;
+  background: #591027;
+  border: 1px solid #c84b6a;
+  box-shadow: 0 15px 35px rgba(0,0,0,.3);
+}
+
+.envelope-flap {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 0;
+  height: 0;
+  border-left: 85px solid transparent;
+  border-right: 85px solid transparent;
+  border-top: 62px solid #86183c;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.3));
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 47px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #d64568;
+  color: white;
+  z-index: 2;
+  font-size: 15px;
+}
+
+.letter-note {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+  margin: 0 auto 25px;
+}
+
+/* სამი კონვერტი */
+
+.secret-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.secret-card {
+  text-align: center;
+  border: 1px solid var(--line);
+  background: linear-gradient(150deg, rgba(99,8,34,.16), rgba(255,255,255,.015));
+  padding: 28px 20px 30px;
+  transition: transform .35s, border-color .35s;
+}
+
+.secret-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 126, 153, .5);
+}
+
+.secret-icon {
+  font-size: 37px;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 0 14px rgba(225, 47, 91, .24));
+}
+
+.secret-card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.secret-card p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.secret-card .btn {
+  padding: 12px 15px;
+  font-size: 10px;
+}
+
+.secret-card.opened {
+  border-color: rgba(255, 126, 153, .5);
+  background: rgba(121, 10, 40, .15);
+}
+
+/* ფინალური სურვილი */
+
+.wish-section {
+  padding-top: 120px;
+  padding-bottom: 130px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, rgba(130, 9, 42, .21), transparent 62%);
+}
+
+.wish-stars {
+  color: #d74b6b;
+  letter-spacing: 15px;
+  font-size: 15px;
+  margin-bottom: 27px;
+}
+
+.wish-title {
+  font-family: var(--display), var(--serif);
+  font-size: clamp(32px, 6vw, 62px);
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 17px;
+}
+
+.wish-title em {
+  color: var(--rose);
+}
+
+.wish-sub {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2.2;
+  max-width: 450px;
+  margin: 0 auto 30px;
+}
+
+.wish-btn {
+  position: relative;
+  overflow: hidden;
+  padding: 19px 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: linear-gradient(130deg, #ad103b, #4d061e);
+  border: 1px solid rgba(255, 151, 172, .65);
+  box-shadow: 0 0 35px rgba(174, 13, 58, .18);
+}
+
+.wish-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: translateX(-100%);
+  transition: transform .7s;
+}
+
+.wish-btn:hover::before {
+  transform: translateX(100%);
+}
+
+#wish-result {
+  min-height: 130px;
+  max-width: 800px;
+  margin: 40px auto 0;
+  padding: 0 15px;
+}
+
+.wish-word {
+  display: inline-block;
+  color: #fff0f4;
+  font-family: var(--display), var(--serif);
+  font-size: clamp(26px, 6vw, 58px);
+  line-height: 1.7;
+  text-shadow: 0 0 35px rgba(255, 50, 100, .35);
+  animation: wordReveal .8s both;
+}
+
+.wish-word:nth-child(2) {
+  animation-delay: .18s;
+}
+
+.wish-word:nth-child(3) {
+  animation-delay: .36s;
+}
+
+.wish-word:nth-child(4) {
+  animation-delay: .54s;
+}
+
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(25px) scale(.92); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.wish-spark {
+  position: fixed;
+  z-index: 300;
+  pointer-events: none;
+  color: #ff7999;
+  animation: sparkUp 1.8s ease-out forwards;
+}
+
+@keyframes sparkUp {
+  from { opacity: 0; transform: translateY(0) scale(.4) rotate(0); }
+  20% { opacity: 1; }
+  to { opacity: 0; transform: translateY(-160px) scale(1.3) rotate(40deg); }
+}
+
+/* მოდალური ფანჯრები */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 2, 4, .87);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  width: min(570px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: clamp(25px, 6vw, 50px);
+  position: relative;
+  border: 1px solid rgba(255, 132, 159, .35);
+  background:
+    radial-gradient(ellipse at top, rgba(116, 8, 39, .18), transparent 70%),
+    #10070c;
+  box-shadow: 0 25px 100px rgba(0,0,0,.5);
+  transform: translateY(15px);
+  transition: transform .35s;
+}
+
+.modal.show .modal-box {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: #eab7c4;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-kicker {
+  color: var(--rose);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+}
+
+.modal-box h2 {
+  font-family: var(--display), var(--serif);
+  font-size: clamp(27px, 5vw, 39px);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.modal-message {
+  color: #d7c1c8;
+  font-size: 13px;
+  line-height: 2.35;
+  white-space: pre-line;
+}
+
+.modal-sign {
+  color: var(--rose);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 22px;
+  margin-top: 25px;
+}
+
+#photo-modal .modal-box {
+  width: min(950px, 100%);
+  padding: 15px;
+  background: #080407;
+}
+
+#lightbox-image {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#lightbox-caption {
+  text-align: center;
+  padding: 16px 0 4px;
+  color: #e5bdc8;
+  font-size: 12px;
+}
+
+/* გამოჩენის ანიმაციები */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .85s ease, transform .85s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* მცურავი გულები */
+
+.heart-particle {
+  position: fixed;
+  bottom: -30px;
+  z-index: 20;
+  pointer-events: none;
+  color: rgba(235, 52, 93, .52);
+  animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) rotate(0) scale(.7); opacity: 0; }
+  15% { opacity: .75; }
+  100% { transform: translateY(-110vh) rotate(45deg) scale(1.2); opacity: 0; }
+}
+
+footer {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 30px 20px;
+  text-align: center;
+  color: #8e727d;
+  font-size: 10px;
+  line-height: 2.2;
+}
+
+footer span {
+  color: var(--rose);
+}
+
+@media (max-width: 760px) {
+  header {
+    padding: 14px 16px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .nav a {
+    display: none;
+  }
+
+  .nav a:last-child {
+    display: inline;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  .hero {
+    min-height: 82vh;
+  }
+
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 22px;
+  }
+
+  .counter-item:nth-child(2) {
+    border-right: none;
+  }
+
+  .gallery {
+    gap: 25px 12px;
+  }
+
+  .photo-card:nth-child(even) {
+    margin-top: 35px;
+  }
+
+  .photo-frame {
+    height: clamp(200px, 62vw, 350px);
+  }
+
+  .photo-frame img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo-caption {
+    font-size: 10px;
+    align-items: flex-start;
+  }
+
+  .secret-grid {
+    grid-template-columns: 1fr;
+    max-width: 390px;
+  }
+
+  .secret-card {
+    padding: 28px;
+  }
+
+  .timeline-item {
+    padding-left: 48px;
+  }
+
+  .timeline::before {
+    left: 16px;
+  }
+
+  .timeline-dot {
+    left: 9px;
+  }
+
+  .timeline-trigger {
+    padding: 19px;
+  }
+
+  .timeline-title {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body class="locked">
+
+<div id="progress"></div>
+<div class="grain"></div>
+
+<div class="ambient">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+</div>
+
+<!-- კინემატოგრაფიული შესავალი -->
+
+<div id="intro">
+  <div class="intro-inner">
+    <div class="intro-kicker">A LITTLE WORLD FOR TWO</div>
+    <div class="intro-heart">♥</div>
+    <h1 class="intro-title">ეს პატარა სამყარო<br><em>შენთვის შევქმენი</em></h1>
+    <p class="intro-sub">
+      აქ თითოეულ ფოტოს, სიტყვასა და წამს თავისი პატარა ისტორია აქვს.
+      მზად ხარ, ერთად გადავხედოთ?
+    </p>
+    <button class="btn" id="enter-btn">
+      <span>გააღე ჩვენი სამყარო</span><span>↗</span>
+    </button>
+  </div>
+</div>
+
+<header>
+  <a class="brand" href="#home" style="text-decoration:none">D & ♥</a>
+
+  <nav class="nav" aria-label="მთავარი მენიუ">
+    <a href="#memories">მოგონებები</a>
+    <a href="#timeline">ჩვენი დრო</a>
+    <a href="#secrets">საიდუმლოებები</a>
+    <a href="#wish">ბოლოს...</a>
+  </nav>
+
+  <button class="music-btn" id="music-btn" title="მუსიკის ჩართვა ან გამორთვა" aria-label="მუსიკა">♫</button>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-content reveal">
+      <div class="hero-label">A STORY WRITTEN BY TWO HEARTS</div>
+
+      <h1>ჩემი საყვარელი<br><span>ისტორია — შენ.</span></h1>
+
+      <p>
+        ზოგჯერ ერთი ადამიანი ისე ალამაზებს ჩვეულებრივ დღეებს,
+        რომ მათ გახსენებასაც კი ღიმილი მოაქვს.
+        ეს გვერდი კი იმ ყველაფრისთვისაა, რისი თქმაც სიტყვებით ყოველთვის მარტივი არ არის.
+      </p>
+
+      <a class="btn" href="#memories" style="text-decoration:none">
+        ჩვენი მოგონებები <span>↓</span>
+      </a>
+    </div>
+
+    <div class="scroll-hint">SCROLL TO FEEL THE STORY <span>⌄</span></div>
+  </section>
+
+  <!-- დროის მრიცხველი -->
+
+  <section class="counter-section reveal">
+    <div class="counter-panel">
+      <div class="eyebrow">EVERY SECOND MATTERS</div>
+      <p class="counter-label">
+        2025 წლის 3 დეკემბრიდან დღემდე გასული დრო
+      </p>
+
+      <div class="counter-grid">
+        <div class="counter-item">
+          <span class="counter-number" id="days">000</span>
+          <span class="counter-name">დღე</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="hours">00</span>
+          <span class="counter-name">საათი</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="minutes">00</span>
+          <span class="counter-name">წუთი</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="seconds">00</span>
+          <span class="counter-name">წამი</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ექვსი ფოტო -->
+
+  <section id="memories">
+    <div class="section-head reveal">
+      <div class="eyebrow">OUR LITTLE UNIVERSE</div>
+      <h2 class="section-title">მომენტები, რომლებსაც<br><em>განსაკუთრებული ადგილი აქვთ</em></h2>
+      <p class="section-desc">
+        ექვსი კადრი, ექვსი პატარა მოგონება.
+        თითოეულს თავისი ამბავი აქვს, რომელსაც მხოლოდ ჩვენ ვგრძნობთ.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="gallery">
+      <article class="photo-card reveal" data-photo="photo1.png" data-caption="ყველაფერი იწყება პატარა მომენტით">
+        <div class="photo-frame">
+          <img src="photo1.png" alt="მოგონება პირველი" loading="lazy">
+          <span class="photo-number">01</span>
+        </div>
+        <div class="photo-caption"><span>ყველაფერი იწყება...</span><span>✦ 01</span></div>
+      </article>
+
+      <article class="photo-card reveal" data-photo="photo2.png" data-caption="ის დღე, რომელიც მახსოვს">
+        <div class="photo-frame">
+          <img src="photo2.png" alt="მოგონება მეორე" loading="lazy">
+          <span class="photo-number">02</span>
+        </div>
+        <div class="photo-caption"><span>ერთი ლამაზი დღე</span><span>✦ 02</span></div>
+      </article>
+
+      <article class="photo-card reveal" data-photo="photo3.png" data-caption="შენთან ყოფნა ჩვეულებრივსაც განსაკუთრებულს ხდის">
+        <div class="photo-frame">
+          <img src="photo3.png" alt="მოგონება მესამე" loading="lazy">
+          <span class="photo-number">03</span>
+        </div>
+        <div class="photo-caption"><span>ჩვენი პატარა სამყარო</span><span>✦ 03</span></div>
+      </article>
+
+      <article class="photo-card reveal" data-photo="photo4.png" data-caption="მოგონებები, რომლებიც გულში რჩება">
+        <div class="photo-frame">
+          <img src="photo4.png" alt="მოგონება მეოთხე" loading="lazy">
+          <span class="photo-number">04</span>
+        </div>
+        <div class="photo-caption"><span>დაუვიწყარი წამები</span><span>✦ 04</span></div>
+      </article>
+
+      <article class="photo-card reveal" data-photo="photo5.png" data-caption="ყველაზე ლამაზი ამბები ჯერ კიდევ წინ არის">
+        <div class="photo-frame">
+          <img src="photo5.png" alt="მოგონება მეხუთე" loading="lazy">
+          <span class="photo-number">05</span>
+        </div>
+        <div class="photo-caption"><span>კიდევ ბევრი ასეთი დღე</span><span>✦ 05</span></div>
+      </article>
+
+      <article class="photo-card reveal" data-photo="photo6.png" data-caption="ეს ისტორია ჯერ კიდევ გრძელდება">
+        <div class="photo-frame">
+          <img src="photo6.png" alt="მოგონება მეექვსე" loading="lazy">
+          <span class="photo-number">06</span>
+        </div>
+        <div class="photo-caption"><span>ჩვენი შემდეგი თავი</span><span>✦ 06</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+
+  <section id="timeline">
+    <div class="section-head reveal">
+      <div class="eyebrow">CHAPTERS OF US</div>
+      <h2 class="section-title">ჩვენი დრო,<br><em>ჩვენი ისტორია</em></h2>
+      <p class="section-desc">
+        დააჭირე თითოეულ მომენტს, რომ მისი პატარა ისტორია წაიკითხო.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="timeline">
+      <article class="timeline-item reveal open">
+        <div class="timeline-dot"></div>
+        <button class="timeline-trigger" aria-expanded="true">
+          <span class="timeline-date">03 DECEMBER 2025</span>
+          <span class="timeline-title">
+            <span>ჩვენი ისტორიის დასაწყისი</span><span class="timeline-plus">+</span>
+          </span>
+        </button>
+        <div class="timeline-detail">
+          <div class="timeline-detail-inner">
+            <p>
+              3 დეკემბერი — თარიღი, რომელსაც განსაკუთრებული მნიშვნელობა აქვს.
+              ზოგი დღე უბრალოდ გადის, ზოგი კი ჩვენს მოგონებებში რჩება და
+              დროთა განმავლობაში კიდევ უფრო ძვირფასი ხდება.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <button class="timeline-trigger" aria-expanded="false">
+          <span class="timeline-date">A MOMENT TO REMEMBER</span>
+          <span class="timeline-title">
+            <span>ღიმილები და პატარა დეტალები</span><span class="timeline-plus">+</span>
+          </span>
+        </button>
+        <div class="timeline-detail">
+          <div class="timeline-detail-inner">
+            <p>
+              ზოგჯერ ერთი ღიმილი, უბრალო საუბარი ან პატარა ყურადღება
+              მთელ დღეს ცვლის. სწორედ ასეთი დეტალები ქმნის ჩვენს ყველაზე
+              თბილ მოგონებებს.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <button class="timeline-trigger" aria-expanded="false">
+          <span class="timeline-date">LITTLE THINGS, BIG FEELINGS</span>
+          <span class="timeline-title">
+            <span>ყველაფერი, რაც ჩვენ გვახსენებს</span><span class="timeline-plus">+</span>
+          </span>
+        </button>
+        <div class="timeline-detail">
+          <div class="timeline-detail-inner">
+            <p>
+              არის მუსიკა, სიტყვები და ადგილები, რომლებიც კონკრეტულ ადამიანს
+              გვახსენებს. თითქოს ჩვეულებრივი რამეებია, მაგრამ ჩვენთვის
+              მათ განსაკუთრებული მნიშვნელობა აქვთ.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <button class="timeline-trigger" aria-expanded="false">
+          <span class="timeline-date" id="today-date">TODAY</span>
+          <span class="timeline-title">
+            <span>დღევანდელი დღე — ახალი მოგონება</span><span class="timeline-plus">+</span>
+          </span>
+        </button>
+        <div class="timeline-detail">
+          <div class="timeline-detail-inner">
+            <p id="today-message">
+              ყოველი ახალი დღე კიდევ ერთი შანსია, შევქმნათ მოგონება,
+              რომელსაც მომავალში ღიმილით გავიხსენებთ.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- დამალული წერილი -->
+
+  <section class="letter-section" id="letter">
+    <div class="section-head reveal">
+      <div class="eyebrow">A LETTER FROM THE HEART</div>
+      <h2 class="section-title">არის რაღაც,<br><em>რაც მინდა წაიკითხო...</em></h2>
+      <p class="section-desc">
+        პატარა წერილი, რომელიც მხოლოდ შენთვისაა.
+      </p>
+    </div>
+
+    <div class="envelope-visual reveal" id="main-envelope" role="button" tabindex="0" aria-label="წერილის გახსნა">
+      <div class="envelope-body"></div>
+      <div class="envelope-flap"></div>
+      <div class="envelope-seal">♥</div>
+    </div>
+
+    <p class="letter-note reveal">
+      კონვერტი ჯერ კიდევ დახურულია...<br>
+      დააჭირე, რომ გაიგო, რა იმალება შიგნით.
+    </p>
+
+    <button class="btn reveal" id="open-letter">გახსენი ჩემი წერილი ♥</button>
+  </section>
+
+  <!-- სამი საიდუმლო კონვერტი -->
+
+  <section id="secrets">
+    <div class="section-head reveal">
+      <div class="eyebrow">THREE LITTLE SECRETS</div>
+      <h2 class="section-title">შენთვის სამი<br><em>დამალული სიურპრიზი</em></h2>
+      <p class="section-desc">
+        თითოეული კონვერტი განსხვავებული განწყობისთვისაა.
+        აირჩიე ის, რომელიც ამ წუთას ყველაზე მეტად გჭირდება.
+      </p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="secret-grid">
+      <article class="secret-card reveal">
+        <div class="secret-icon">✉</div>
+        <h3>როცა მოწყენილი ხარ</h3>
+        <p>პატარა შეხსენება იმისთვის, რომ შენს ღიმილს დიდი მნიშვნელობა აქვს.</p>
+        <button class="btn secondary secret-open" data-secret="sad">გახსენი წერილი</button>
+      </article>
+
+      <article class="secret-card reveal">
+        <div class="secret-icon">♥</div>
+        <h3>როცა გენატრები</h3>
+        <p>რამდენიმე თბილი სიტყვა იმ მომენტისთვის, როცა მანძილი იგრძნობა.</p>
+        <button class="btn secondary secret-open" data-secret="miss">გახსენი წერილი</button>
+      </article>
+
+      <article class="secret-card reveal">
+        <div class="secret-icon">✧</div>
+        <h3>როცა განსაკუთრებული დღეა</h3>
+        <p>სიურპრიზი იმ დღეებისთვის, რომელთა გახსენებაც გვინდა.</p>
+        <button class="btn secondary secret-open" data-secret="special">გახსენი წერილი</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- დემეს სურვილი -->
+
+  <section class="wish-section" id="wish">
+    <div class="wish-stars reveal">✦ ✧ ♥ ✧ ✦</div>
+
+    <div class="reveal">
+      <div class="eyebrow">ONE LAST LITTLE SECRET</div>
+      <h2 class="wish-title">დემეს ერთი<br><em>პატარა სურვილი აქვს...</em></h2>
+      <p class="wish-sub">
+        აქ ბოლომდე არ დამთავრდება ჩვენი ისტორია.
+        დააჭირე ღილაკს და ნახე, რას გთხოვს დემე. ♥
+      </p>
+
+      <button class="btn wish-btn" id="wish-btn">
+        გაიგე დემეს სურვილი <span>♥</span>
+      </button>
+    </div>
+
+    <div id="wish-result" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer>
+  <p>შექმნილია <span>♥</span> სიყვარულით, შენთვის.</p>
+  <p>ერთი პატარა გვერდი — ბევრი დიდი გრძნობისთვის.</p>
+</footer>
+
+<!-- წერილის მოდალი -->
+
+<div class="modal" id="message-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="დახურვა">×</button>
+    <div class="modal-kicker" id="modal-kicker">JUST FOR YOU</div>
+    <h2 id="modal-title">შენთვის...</h2>
+    <div class="modal-message" id="modal-message"></div>
+    <div class="modal-sign" id="modal-sign">— დემე ♥</div>
+  </div>
+</div>
+
+<!-- ფოტოს მოდალი -->
+
+<div class="modal" id="photo-modal" role="dialog" aria-modal="true" aria-label="ფოტოს ნახვა">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="დახურვა">×</button>
+    <img id="lightbox-image" src="" alt="გადიდებული ფოტო">
+    <p id="lightbox-caption"></p>
+  </div>
+</div>
+
+<audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+<script>
+/* 1. შესვლის ეკრანი და მუსიკა */
+
+const intro = document.getElementById("intro");
+const enterBtn = document.getElementById("enter-btn");
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("music-btn");
+
+let musicPlaying = false;
+
+async function startMusic() {
+  try {
+    await music.play();
+    musicPlaying = true;
+    musicBtn.classList.add("playing");
+    musicBtn.textContent = "♫";
+  } catch (error) {
+    musicPlaying = false;
+    musicBtn.classList.remove("playing");
+    musicBtn.textContent = "♪";
+  }
+}
+
+enterBtn.addEventListener("click", () => {
+  intro.classList.add("exit");
+  document.body.classList.remove("locked");
+  startMusic();
+});
+
+musicBtn.addEventListener("click", async () => {
+  if (musicPlaying) {
+    music.pause();
+    musicPlaying = false;
+    musicBtn.classList.remove("playing");
+    musicBtn.textContent = "♪";
+  } else {
+    await startMusic();
+  }
+});
+
+music.addEventListener("play", () => {
+  musicPlaying = true;
+  musicBtn.classList.add("playing");
+});
+
+music.addEventListener("pause", () => {
+  musicPlaying = false;
+  musicBtn.classList.remove("playing");
+});
+
+/* 2. დროის მრიცხველი */
+
+const startDate = new Date(2025, 11, 3, 0, 0, 0);
+
+const pad = number => String(number).padStart(2, "0");
+
+function updateCounter() {
+  const now = new Date();
+  let difference = Math.max(0, now.getTime() - startDate.getTime());
+
+  const totalSeconds = Math.floor(difference / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = pad(hours);
+  document.getElementById("minutes").textContent = pad(minutes);
+  document.getElementById("seconds").textContent = pad(seconds);
+
+  const georgianDate = new Intl.DateTimeFormat("ka-GE", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  }).format(now);
+
+  document.getElementById("today-date").textContent =
+    georgianDate.toUpperCase();
+
+  document.getElementById("today-message").textContent =
+    "დღეს " + georgianDate +
+    " არის. ესეც ჩვენი ისტორიის კიდევ ერთი დღეა — " +
+    "კიდევ ერთი შესაძლებლობა ახალი, ლამაზი მოგონებისთვის.";
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+/* 3. სქროლის პროგრესი */
+
+function updateProgress() {
+  const scrollable =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress = scrollable > 0
+    ? (window.scrollY / scrollable) * 100
+    : 0;
+
+  document.getElementById("progress").style.width =
+    Math.min(100, Math.max(0, progress)) + "%";
+}
+
+window.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress();
+
+/* 4. გამოჩენის ანიმაციები */
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  revealObserver.observe(element);
+});
+
+/* 5. ინტერაქტიული Timeline */
+
+document.querySelectorAll(".timeline-trigger").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".timeline-item");
+    const willOpen = !item.classList.contains("open");
+
+    item.classList.toggle("open", willOpen);
+    button.setAttribute("aria-expanded", String(willOpen));
+  });
+});
+
+/* 6. წერილი და კონვერტები */
+
+const messageModal = document.getElementById("message-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalKicker = document.getElementById("modal-kicker");
+const modalMessage = document.getElementById("modal-message");
+const modalSign = document.getElementById("modal-sign");
+
+const messages = {
+  letter: {
+    kicker: "A LETTER FROM DEME",
+    title: "რამდენიმე სიტყვა შენთვის...",
+    message:
+`ზოგჯერ მიჭირს ზუსტად ავხსნა, რას ნიშნავს ჩემთვის ადამიანი, რომელიც ჩემს დღეებს ალამაზებს.
+
+შენში არის რაღაც განსაკუთრებული — შენი ღიმილი, შენი ხასიათი, შენი პატარა ჩვევები და ის დეტალები, რომლებსაც შეიძლება თავად ვერც ამჩნევ.
+
+მინდა, შენთან ერთად ბევრი ისეთი დღე მქონდეს, რომლებსაც წლების შემდეგაც ღიმილით გავიხსენებთ. მინდა, იცოდე, რომ შენს ემოციებს, შენს აზრებსა და შენს პატარა ოცნებებს ჩემთვის მნიშვნელობა აქვს.
+
+ეს საიტი უბრალოდ რამდენიმე ფოტოსა და სიტყვას არ წარმოადგენს. ეს ჩემი მცდელობაა, გაჩვენო, რამდენად განსაკუთრებული ადგილი გაქვს ჩემს სამყაროში.
+
+მადლობა იმ ღიმილებისთვის, იმ საუბრებისთვის და იმ მომენტებისთვის, რომლებიც ჩვეულებრივ დღესაც კი ლამაზ მოგონებად აქცევს.
+
+და თუ ოდესმე დაგავიწყდება, რამდენად განსაკუთრებული ხარ, ამ პატარა გვერდს დაუბრუნდი და თავიდან წაიკითხე ეს სიტყვები.`,
+    sign: "— ყოველთვის შენი, დემე ♥"
+  },
+
+  sad: {
+    kicker: "OPEN WHEN YOU FEEL SAD",
+    title: "თუ დღეს რთული დღე გაქვს...",
+    message:
+`ცოტა ხნით შეჩერდი და ღრმად ჩაისუნთქე.
+
+არ არის აუცილებელი, ყოველთვის ძლიერი იყო ან ყველას წინაშე იღიმოდე. შენც გაქვს უფლება დაიღალო, გაჩუმდე და უბრალოდ ცოტა სიმშვიდე გინდოდეს.
+
+ერთი ცუდი დღე არ ნიშნავს, რომ ყველაფერი ცუდადაა. შენში იმდენი კარგი რამ არის, რასაც რთული წუთები ვერ შეცვლის.
+
+იმედი მაქვს, ეს პატარა წერილი ცოტათი მაინც გაგითბობს გულს. და თუ საუბარი მოგინდება, გახსოვდეს, რომ შენი მოსმენა მნიშვნელოვანია.`,
+    sign: "— ჩაგეხუტებოდი ახლა ♥"
+  },
+
+  miss: {
+    kicker: "OPEN WHEN YOU MISS ME",
+    title: "თუ ახლა გენატრები...",
+    message:
+`წარმოიდგინე, რომ შენ გვერდით ვარ და უბრალოდ გიღიმი.
+
+შეიძლება ამ წამს ერთმანეთის გვერდით არ ვიყოთ, მაგრამ ჩვენი მოგონებები მაინც ჩვენთანაა — პატარა დეტალებში, საყვარელ სიმღერებში და იმ ღიმილში, რომელიც მოულოდნელად გახსენდება.
+
+მე კიდევ ბევრი ისეთი მომენტი მინდა, რომელთა გახსენებაც მომავალში გაგვაბედნიერებს.
+
+მანამდე კი ეს წერილი პატარა შეხსენებად დაიტოვე: შენზე ფიქრი ჩემს დღეს ხშირად ალამაზებს.`,
+    sign: "— მალე ჩახუტებამდე ♥"
+  },
+
+  special: {
+    kicker: "OPEN ON A SPECIAL DAY",
+    title: "დღეს რაღაც განსაკუთრებულია...",
+    message:
+`დღეს მინდა, ჩვეულებრივზე მეტად გაგეღიმოს.
+
+გისურვებ დღეებს, სადაც ბევრი სიხარული იქნება, ადამიანებს, რომლებიც გულწრფელად დაგაფასებენ, და ოცნებებს, რომლებსაც ნელ-ნელა რეალობად აქცევ.
+
+არ დაკარგო შენი განსაკუთრებული ხასიათი, შენი სინაზე და ის პატარა დეტალები, რომლებიც შენს პიროვნებას ასეთ ლამაზს ხდის.
+
+და თუ ამ დღის ერთ პატარა ნაწილად მეც ვიქნები, ეს ჩემთვის ძალიან ძვირფასი იქნება.
+
+შეინახე ეს წერილი და წაიკითხე მაშინაც, როცა კიდევ ერთი მიზეზი დაგჭირდება გასაღიმებლად.`,
+    sign: "— შენი დემე ♥"
+  }
+};
+
+function openMessage(type) {
+  const message = messages[type];
+  if (!message) return;
+
+  modalKicker.textContent = message.kicker;
+  modalTitle.textContent = message.title;
+  modalMessage.textContent = message.message;
+  modalSign.textContent = message.sign;
+
+  messageModal.classList.add("show");
+  document.body.classList.add("locked");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("show");
+
+  if (!document.querySelector(".modal.show") &&
+      !intro.classList.contains("exit")) {
+    document.body.classList.add("locked");
+  } else if (!document.querySelector(".modal.show")) {
+    document.body.classList.remove("locked");
+  }
+}
+
+document.getElementById("open-letter").addEventListener("click", () => {
+  openMessage("letter");
+});
+
+const mainEnvelope = document.getElementById("main-envelope");
+
+mainEnvelope.addEventListener("click", () => openMessage("letter"));
+
+mainEnvelope.addEventListener("keydown", event => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openMessage("letter");
+  }
+});
+
+document.querySelectorAll(".secret-open").forEach(button => {
+  button.addEventListener("click", () => {
+    const type = button.dataset.secret;
+    const card = button.closest(".secret-card");
+
+    openMessage(type);
+    card.classList.add("opened");
+    button.textContent = "წერილი გახსნილია ✓";
+  });
+});
+
+document.querySelectorAll(".modal-close").forEach(button => {
+  button.addEventListener("click", () => {
+    closeModal(button.closest(".modal"));
+  });
+});
+
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closeModal(modal);
+  });
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal.show").forEach(closeModal);
+  }
+});
+
+/* 7. ფოტოები — დიდ ზომაში */
+
+const photoModal = document.getElementById("photo-modal");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxCaption = document.getElementById("lightbox-caption");
+
+document.querySelectorAll(".photo-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const image = card.dataset.photo;
+    const caption = card.dataset.caption;
+
+    lightboxImage.src = image;
+    lightboxImage.alt = caption;
+    lightboxCaption.textContent = caption;
+
+    photoModal.classList.add("show");
+    document.body.classList.add("locked");
+  });
+});
+
+/* 8. დემეს სურვილი */
+
+const wishButton = document.getElementById("wish-btn");
+const wishResult = document.getElementById("wish-result");
+
+wishButton.addEventListener("click", () => {
+  wishResult.replaceChildren();
+
+  const words = [
+    "პუსი",
+    "მინდა !",
+    "გთხოვ",
+    "მანახე."
+  ];
+
+  words.forEach((word, index) => {
+    const span = document.createElement("span");
+    span.className = "wish-word";
+    span.textContent = word;
+    span.style.animationDelay = (index * 0.18) + "s";
+
+    if (index < words.length - 1) {
+      span.style.marginRight = "0.22em";
+    }
+
+    wishResult.appendChild(span);
+  });
+
+  wishButton.innerHTML = "კიდევ ერთხელ ნახე ♥";
+  createWishSparks();
+});
+
+function createWishSparks() {
+  const symbols = ["♥", "✦", "✧", "♡", "✧"];
+  const buttonRect = wishButton.getBoundingClientRect();
+
+  for (let i = 0; i < 22; i++) {
+    const spark = document.createElement("span");
+    spark.className = "wish-spark";
+    spark.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+    spark.style.left =
+      (buttonRect.left + Math.random() * buttonRect.width) + "px";
+
+    spark.style.top =
+      (buttonRect.top + Math.random() * buttonRect.height) + "px";
+
+    spark.style.fontSize = (12 + Math.random() * 15) + "px";
+    spark.style.animationDelay = (Math.random() * 0.6) + "s";
+
+    document.body.appendChild(spark);
+
+    setTimeout(() => spark.remove(), 2600);
+  }
+}
+
+/* 9. მცურავი გულები */
+
+const heartSymbols = ["♥", "♡", "❤"];
+
+function createFloatingHeart() {
+  if (document.hidden) return;
+
+  const heart = document.createElement("span");
+  heart.className = "heart-particle";
+  heart.textContent =
+    heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (10 + Math.random() * 17) + "px";
+  heart.style.animationDuration = (9 + Math.random() * 9) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 19000);
+}
+
+setInterval(createFloatingHeart, 1400);
+
+/* 10. ნავიგაცია */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", event => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  });
+});
+</script>
+
+</body>
+</html>
